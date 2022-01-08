@@ -1,2 +1,2 @@
-# transfer-learning-tfjs
-Aplicación web usando transfer learning en tensorflow.js
+# neural-style-transfer-tfjs
+Aplicación web usando un modelo de neural style transfer (NST) en tensorflow.js
