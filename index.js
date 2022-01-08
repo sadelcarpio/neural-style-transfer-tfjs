@@ -33,7 +33,7 @@ async function runNst() {
   let style = tf.browser.fromPixels(style_img).expandDims(0).cast("float32");
 
 
-  content = tf.image.resizeBilinear(content, [224, 224]).div(255) ;
+  content = content.div(255) ;
   style = tf.image.resizeBilinear(style, [224, 224]).div(255) ;
 
   const result = await model.execute({'placeholder_1' : style, 'placeholder': content});

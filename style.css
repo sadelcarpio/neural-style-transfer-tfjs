@@ -4,14 +4,18 @@
     }
 }
 
-
-header {
-    background-color: #CE6C47;
+header h1, h4 {
+    color: #FBF8EE;
 }
 
-#description {
-    background-color: #EADAA2;
+header, #description {
+    background-color: #88B7B5;
 }
+
+#description p, li {
+    color: #FBF8EE;
+}
+
 
 #imgs {
     background-color: #FBF8EE;;
@@ -37,7 +41,7 @@ ul {
 }
 
 .card-img-top canvas {
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
 }
@@ -51,7 +55,7 @@ ul {
     margin-right: auto;
     line-height:50px;
     text-align:center;
-    background: #CE6C47;
+    background: #165eb1;
     color:#fff;
     font-size:15px;
     font-family:"Open Sans",sans-serif;
@@ -68,7 +72,7 @@ ul {
     margin-left: auto;
     margin-right: auto;
     text-align:center;
-    background: #CE6C47;
+    background: #165eb1;
     color:#fff;
     font-size:15px;
     font-family:"Open Sans",sans-serif;
