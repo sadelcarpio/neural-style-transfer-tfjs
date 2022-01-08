@@ -25,24 +25,38 @@ function showPreview(event) {
 }
 
 async function runNst() {
-  const model = await tf.loadGraphModel('./tfjs_model/model.json'); 
-  const content_img = document.querySelector('#img-content-preview');
-  const style_img = document.querySelector('#img-style-preview');
+  if (document.getElementById('img-content-preview').src != '' && document.getElementById('img-style-preview').src != '') {
+    const model = await tf.loadGraphModel('./tfjs_model/model.json'); 
+    const content_img = document.querySelector('#img-content-preview');
+    const style_img = document.querySelector('#img-style-preview');
 
-  let content = tf.browser.fromPixels(content_img).expandDims(0).cast("float32");
-  let style = tf.browser.fromPixels(style_img).expandDims(0).cast("float32");
+    let content = tf.browser.fromPixels(content_img).expandDims(0).cast("float32");
+    let style = tf.browser.fromPixels(style_img).expandDims(0).cast("float32");
 
 
-  content = content.div(255) ;
-  style = tf.image.resizeBilinear(style, [224, 224]).div(255) ;
+    content = content.div(255) ;
+    style = tf.image.resizeBilinear(style, [224, 224]).div(255) ;
 
-  const result = await model.execute({'placeholder_1' : style, 'placeholder': content});
+    const result = await model.execute({'placeholder_1' : style, 'placeholder': content});
 
-  content.dispose();
-  style.dispose();
+    content.dispose();
+    style.dispose();
 
-  tf.browser.toPixels(result.squeeze(), document.getElementsByTagName("canvas")[0]);
+    tf.browser.toPixels(result.squeeze(), document.getElementsByTagName("canvas")[0]);
 
-  result.dispose();
+    result.dispose();
+  }
+
+  else if (document.getElementById('img-content-preview').src == '' && document.getElementById('img-style-preview').src != ''){
+    alert('¡Se necesita una imagen de contenido!');
+  }
+
+  else if (document.getElementById('img-style-preview').src == '' && document.getElementById('img-content-preview').src != ''){
+    alert('¡Se necesita una imagen de estilo!');
+  }
+
+  else {
+    alert('¡No se han subido imágenes!')
+  }
 
 }
