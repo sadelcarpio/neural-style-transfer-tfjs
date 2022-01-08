@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap as CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Tensorflow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Segmentador de imágenes</title>
+</head>
+<body>
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-2">
+          </div>
+          <div class="col-8 text-center">
+            <h1>Modelo de Deep Learning en web</h1>
+            <p> Transferencia de estilo </p>
+          </div>
+          <div class="col-2"></div>
+        </div>
+      </div>
+    </header>
+
+  
+    
+    <div class="container-fullwidth">
+      <div class="row mx-auto" id="imgs">
+        <div class="col-md mt-3 text-center">
+          <div class="container">
+            <div class="row">
+              <h3>Sube una imagen</h3>
+            </div>
+            <div class="row justify-content-center">
+              <div class="card" style="width: 25rem">
+                <!-- <video autoplay playsinline muted id="webcam" width="224" height="224"></video> -->
+                <!-- <img id="img" crossorigin src="https://i.imgur.com/JlUvsxa.jpg" width="227" height="227"/> -->
+                <div class="card-img-top" id="display-img">
+                  <img id="img-content-preview">
+                </div>
+                <div class="card-body">
+                  <form action="">
+                    <label for="image-content-input">Subir</label>
+                    <input type="file" id="image-content-input" accept="image/*"name="filename" onchange="showPreview(event);">
+                  </form>
+                </div>
+              </div>
+            </div>         
+          </div>
+        </div>
+  
+        <div class="col-md mt-3 text-center">
+          <div class="container">
+            <div class="row">
+              <h3>Estilo</h3>
+            </div>
+            <div class="row justify-content-center">
+                <div class="card" style="width: 25rem">
+                  <!-- <video autoplay playsinline muted id="webcam" width="224" height="224"></video> -->
+                  <!-- <img id="img" crossorigin src="https://i.imgur.com/JlUvsxa.jpg" width="227" height="227"/> -->
+                  <div class="card-img-top">
+                    <img id="img-style-preview">
+                  </div>
+                  <div class="card-body">
+                    <form action="">
+                      <label for="image-style-input">Subir</label>
+                      <input type="file" id="image-style-input" accept="image/*"name="filename" onchange="showPreview(event);">
+                    </form>
+                  </div>
+                </div>
+            </div>         
+          </div>
+        </div>
+        <div class="col-md mt-3 text-center">
+          <div class="container">
+            <div class="row">
+              <h3>Resultado</h3>
+            </div>
+            <div class="row justify-content-center">
+              <div class="card" style="width: 25rem">
+                <div class="card" style="width: 25rem">
+                  <!-- <video autoplay playsinline muted id="webcam" width="224" height="224"></video> -->
+                  <!-- <img id="img" crossorigin src="https://i.imgur.com/JlUvsxa.jpg" width="227" height="227"/> -->
+                  <div class="card-img-top">
+                    <canvas></canvas>
+                    <!-- <img id="result-preview"> -->
+                  </div>
+                  <div class="card-body">
+                    <form action="">
+                      <button id="result" type="button" onclick="runNst();">Ver Resultado</button>
+                    </form>
+                  </div>
+                </div>
+                </p>
+              </div>
+            </div>         
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container-fluid" id="description">
+      <div class="row text-center">
+        <div class="col-2"></div>
+        <div class="col-8 mt-3">
+        <p>Esta es una demo simple de un modelo de Deep Learning utilizando una interfaz web. 
+          <br> Tecnologías usadas:
+          <ul>  
+            <li>Bootstrap</li>
+            <li>Django</li>
+            <li>AWS S3</li>
+            <li>Tensorflow</li>
+          </ul>
+        </p>
+        </div>
+        <div class="col-2"></div>   
+      </div>
+    </div>
+
+    
+    <!-- Our .js code (Bootstrap & model) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    
+</body>
+</html>
